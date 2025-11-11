@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LuminaClient - Advanced Minecraft Client Modification | Deep dive into architecture, features, and implementation">
+    <title>LuminaClient | Technical Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-back">← Back to Portfolio</a>
+            <div class="nav-logo">
+                <span class="lumina-icon">✦</span>
+                <span>LuminaClient</span>
+            </div>
+            <a href="https://github.com/LuminaDevelopment/LuminaClient" target="_blank" class="nav-github">GitHub →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Alpha v1.0.0 • Minecraft 1.19.4</div>
+            <h1 class="hero-title">
+                <span class="lumina-icon">✦</span>
+                LuminaClient
+            </h1>
+            <p class="hero-subtitle">A Deep Dive into Advanced Minecraft Client Modification</p>
+            <p class="hero-description">
+                Sophisticated ghost client built on Fabric, featuring 98 modules, event-driven architecture,
+                and advanced bytecode manipulation through mixins.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">98</div>
+                    <div class="stat-label">Modules</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Mixins</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">171</div>
+                    <div class="stat-label">Java Files</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15K+</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <!-- Introduction -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Introduction</h2>
+                <div class="content-card">
+                    <p>
+                        LuminaClient is a sophisticated ghost client for Minecraft 1.19.4, built on the Fabric modding framework.
+                        The name stands for <strong>"Light Utilization Management Integrating Notable Acceleration"</strong> -
+                        a fitting description for a client that seamlessly integrates powerful features while maintaining a low profile.
+                    </p>
+                    <p>
+                        As an alpha-stage project, LuminaClient showcases advanced software architecture patterns and deep integration
+                        with Minecraft's client-side codebase through the innovative use of mixins, event systems, and modular design.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Technology Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">☕</div>
+                        <h3>Java 17+</h3>
+                        <p>Modern Java features with target and source compatibility</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🧵</div>
+                        <h3>Fabric Framework</h3>
+                        <p>Lightweight modding framework v0.14.17</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🎮</div>
+                        <h3>Minecraft 1.19.4</h3>
+                        <p>Target version with Yarn mappings</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🔧</div>
+                        <h3>Gradle + Loom</h3>
+                        <p>Build automation with Fabric-Loom plugin</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📊</div>
+                        <h3>MongoDB Driver</h3>
+                        <p>Server-side data storage integration</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📝</div>
+                        <h3>GSON & Log4j2</h3>
+                        <p>JSON serialization and robust logging</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Project Architecture</h2>
+                <div class="content-card">
+                    <p>
+                        LuminaClient follows a well-structured, modular architecture with clear separation of concerns.
+                        The project employs several classic design patterns:
+                    </p>
+                    <div class="pattern-list">
+                        <div class="pattern-item">
+                            <span class="pattern-name">Singleton Pattern</span>
+                            <p>Critical components like Lumina.INSTANCE and ModuleManager.INSTANCE use singletons for global access</p>
+                        </div>
+                        <div class="pattern-item">
+                            <span class="pattern-name">Abstract Base Classes</span>
+                            <p>Extensible hierarchies for Module, HudModule, Setting, and Event base classes</p>
+                        </div>
+                        <div class="pattern-item">
+                            <span class="pattern-name">Observer Pattern</span>
+                            <p>Event system implements observer pattern for decoupled communication</p>
+                        </div>
+                        <div class="pattern-item">
+                            <span class="pattern-name">Registry Pattern</span>
+                            <p>Central registries manage component lifecycles and event-to-listener mappings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">Initialization Sequence</div>
+                    <pre><code>1. Fabric Entry → Lumina.onInitializeClient()
+2. Event Registration → Main client registers as listener
+3. Cape System → CapeManager.init()
+4. GitHub Integration → Check for updates
+5. Module Initialization → All 98 modules instantiated
+6. Config Loading → Async thread loads configurations
+7. Ready State → Client ready for gameplay</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module System -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">The Module System</h2>
+                <div class="content-card">
+                    <p>
+                        At the heart of LuminaClient is its modular architecture, with 98 modules organized into 8 categories.
+                        Each module extends the abstract <code>Module</code> class and can be toggled independently with precise configuration.
+                    </p>
+                </div>
+
+                <div class="module-categories">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span class="category-icon">⚔️</span>
+                            <h3>COMBAT (3)</h3>
+                        </div>
+                        <ul class="module-list">
+                            <li><strong>Killaura</strong> - Automated targeting and attacking</li>
+                            <li><strong>TriggerBot</strong> - Automatic attack on crosshair target</li>
+                            <li><strong>PvpHubExploit</strong> - Server-specific kit exploitation</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span class="category-icon">👻</span>
+                            <h3>GHOST (9)</h3>
+                        </div>
+                        <ul class="module-list">
+                            <li><strong>CrystalPop</strong> - Intelligent end crystal destruction</li>
+                            <li><strong>SCC</strong> - Sword Crystal Combo automation</li>
+                            <li><strong>CrystalPlacer</strong> - Automated crystal placement</li>
+                            <li><strong>AutoRefill</strong> - Inventory restocking</li>
+                            <li><strong>LegitTotem</strong> - Legitimate-looking totem mechanics</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span class="category-icon">🏃</span>
+                            <h3>MOVEMENT (5)</h3>
+                        </div>
+                        <ul class="module-list">
+                            <li><strong>Flight</strong> - Creative-mode flying</li>
+                            <li><strong>Scaffold</strong> - Automated block bridging</li>
+                            <li><strong>Speed</strong> - Movement acceleration</li>
+                            <li><strong>FakeLag</strong> - Network lag simulation</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span class="category-icon">🎮</span>
+                            <h3>PLAYER (4)</h3>
+                        </div>
+                        <ul class="module-list">
+                            <li><strong>Blink</strong> - Packet buffering with position desync</li>
+                            <li><strong>ChestStealer</strong> - Automated chest looting</li>
+                            <li><strong>NoFall</strong> - Fall damage negation</li>
+                            <li><strong>GhostPlace</strong> - Invisible block placement</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span class="category-icon">👁️</span>
+                            <h3>RENDER (13)</h3>
+                        </div>
+                        <ul class="module-list">
+                            <li><strong>Arraylist</strong> - Enabled modules display with animations</li>
+                            <li><strong>TargetHUD</strong> - Current target information overlay</li>
+                            <li><strong>ESP</strong> - Entity highlighting</li>
+                            <li><strong>XRay</strong> - Ore visualization</li>
+                            <li><strong>FullBright</strong> - Darkness removal</li>
+                            <li><strong>Cape</strong> - Custom cosmetic capes</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span class="category-icon">🔧</span>
+                            <h3>MISC (7)</h3>
+                        </div>
+                        <ul class="module-list">
+                            <li><strong>PacketLogger</strong> - Network traffic debugging</li>
+                            <li><strong>Freecam</strong> - Spectator camera mode</li>
+                            <li><strong>ChatHandler</strong> - Chat message manipulation</li>
+                            <li><strong>NameProtect</strong> - Privacy protection</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">Module Base Class</div>
+                    <pre><code>public abstract class Module {
+    private String name;
+    private String description;
+    private Category category;
+    private int key;
+    private boolean enabled;
+    private List&lt;Setting&gt; settings;
+    private DecelerateAnimation animation;
+
+    public abstract void onEnable();
+    public abstract void onDisable();
+    public void toggle() { ... }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event System -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Event-Driven Architecture</h2>
+                <div class="content-card">
+                    <p>
+                        LuminaClient uses a sophisticated event system to respond to game events in real-time.
+                        This reactive architecture allows modules to remain decoupled from Minecraft's code while
+                        still responding to in-game actions.
+                    </p>
+                </div>
+
+                <div class="event-flow">
+                    <div class="flow-step">
+                        <div class="flow-number">1</div>
+                        <div class="flow-content">
+                            <h4>Registration</h4>
+                            <p>Module calls EventManager.register(this) and methods with @EventTarget are registered</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">
+                        <div class="flow-number">2</div>
+                        <div class="flow-content">
+                            <h4>Event Trigger</h4>
+                            <p>Mixin intercepts Minecraft method and creates Event instance</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">
+                        <div class="flow-number">3</div>
+                        <div class="flow-content">
+                            <h4>Dispatch</h4>
+                            <p>EventManager invokes all registered listeners in priority order (0-255)</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">
+                        <div class="flow-number">4</div>
+                        <div class="flow-content">
+                            <h4>Execution</h4>
+                            <p>Module logic executes and can cancel events if needed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-types">
+                    <h3>Available Event Types (15 total)</h3>
+                    <div class="event-grid">
+                        <div class="event-item">KeyEvent</div>
+                        <div class="event-item">Render2DEvent</div>
+                        <div class="event-item">Render3DEvent</div>
+                        <div class="event-item">EventUpdate</div>
+                        <div class="event-item">PacketSendEvent</div>
+                        <div class="event-item">PacketReceiveEvent</div>
+                        <div class="event-item">ChatMessageSentEvent</div>
+                        <div class="event-item">ChatMessageReceivedEvent</div>
+                        <div class="event-item">PlayerMoveEvent</div>
+                        <div class="event-item">HandSwingEvent</div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">Event Usage Example</div>
+                    <pre><code>public class ExampleModule extends Module {
+    @EventTarget(priority = 2)
+    public void onUpdate(EventUpdate event) {
+        // Execute logic every game tick (20 times/second)
+    }
+
+    @EventTarget(priority = 1)
+    public void onPacket(PacketSendEvent event) {
+        if (shouldCancelPacket()) {
+            event.cancel(); // Prevents packet from being sent
+        }
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mixin System -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Mixin System: The Foundation</h2>
+                <div class="content-card">
+                    <p>
+                        The mixin system is what makes LuminaClient possible. Mixins allow the client to inject custom code
+                        into Minecraft's classes at runtime without modifying the original JAR files through bytecode manipulation.
+                    </p>
+                </div>
+
+                <div class="mixin-grid">
+                    <div class="mixin-card">
+                        <h3>ClientPlayNetworkHandlerMixin</h3>
+                        <div class="mixin-purpose">Packet Interception</div>
+                        <p>Intercepts packet sending and chat messages, enabling packet logging, modification, and cancellation</p>
+                    </div>
+                    <div class="mixin-card">
+                        <h3>MinecraftClientMixin</h3>
+                        <div class="mixin-purpose">Game Loop Integration</div>
+                        <p>Main game loop integration for tick updates and global state management</p>
+                    </div>
+                    <div class="mixin-card">
+                        <h3>InGameHudMixin</h3>
+                        <div class="mixin-purpose">HUD Rendering</div>
+                        <p>Enables custom HUD overlays, module status displays, and visual indicators</p>
+                    </div>
+                    <div class="mixin-card">
+                        <h3>GameRendererMixin</h3>
+                        <div class="mixin-purpose">Camera & View</div>
+                        <p>Camera manipulation for NoHurtCam, Freecam, and FOV modifications</p>
+                    </div>
+                    <div class="mixin-card">
+                        <h3>WorldRendererMixin</h3>
+                        <div class="mixin-purpose">World Rendering</div>
+                        <p>Selective block rendering for XRay, ESP, and custom world overlays</p>
+                    </div>
+                    <div class="mixin-card">
+                        <h3>KeyboardMixin</h3>
+                        <div class="mixin-purpose">Input Capture</div>
+                        <p>Keyboard input capture for module keybind system and GUI activation</p>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">Mixin Injection Example</div>
+                    <pre><code>@Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
+private void onSendPacket(Packet&lt;?&gt; packet, CallbackInfo ci) {
+    PacketSendEvent event = new PacketSendEvent(packet);
+    event.call();
+    if (event.isCancelled()) {
+        ci.cancel(); // Prevents packet from being sent
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Showcase -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Feature Showcase</h2>
+
+                <!-- Killaura -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Killaura: Automated Combat</h3>
+                        <span class="feature-category">Combat</span>
+                    </div>
+                    <p>Automatically attacks nearby entities within a configurable range using sophisticated rotation calculations.</p>
+                    <div class="feature-details">
+                        <div class="feature-point">
+                            <strong>Range Setting:</strong> 1-6 blocks configurable
+                        </div>
+                        <div class="feature-point">
+                            <strong>Priority Modes:</strong> Distance or Health-based targeting
+                        </div>
+                        <div class="feature-point">
+                            <strong>Entity Filters:</strong> Players, Mobs, Passive animals
+                        </div>
+                        <div class="feature-point">
+                            <strong>Smart Rotation:</strong> Uses RotationUtil for realistic aim
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scaffold -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Scaffold: Automated Bridging</h3>
+                        <span class="feature-category">Movement</span>
+                    </div>
+                    <p>Automatically places blocks beneath the player for bridging across gaps with sophisticated placement logic.</p>
+                    <div class="feature-details">
+                        <div class="feature-point">
+                            <strong>Block Data Caching:</strong> Pre-calculates placement positions
+                        </div>
+                        <div class="feature-point">
+                            <strong>Head Turner Mode:</strong> Rotates head away from placed blocks
+                        </div>
+                        <div class="feature-point">
+                            <strong>Dynamic Selection:</strong> Auto-selects blocks from hotbar
+                        </div>
+                        <div class="feature-point">
+                            <strong>Blacklist System:</strong> Avoids placing certain blocks
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blink -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Blink: Position Desync</h3>
+                        <span class="feature-category">Player</span>
+                    </div>
+                    <p>Buffers all outgoing packets and releases them on disable, creating a teleportation effect.</p>
+                    <div class="feature-details">
+                        <div class="feature-point">
+                            <strong>Packet Queue:</strong> Concurrent queue stores packets safely
+                        </div>
+                        <div class="feature-point">
+                            <strong>Fake Player:</strong> Renders client-side player model
+                        </div>
+                        <div class="feature-point">
+                            <strong>Server Desync:</strong> Client moves freely while server sees player stationary
+                        </div>
+                        <div class="feature-point">
+                            <strong>Instant Release:</strong> All packets sent at once on disable
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Freecam -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Freecam: Spectator Mode</h3>
+                        <span class="feature-category">Misc</span>
+                    </div>
+                    <p>Camera moves independently of player position with configurable movement modes.</p>
+                    <div class="feature-details">
+                        <div class="feature-point">
+                            <strong>Movement Modes:</strong> Velocity-based physics or static movement
+                        </div>
+                        <div class="feature-point">
+                            <strong>Packet Cancellation:</strong> Prevents server position updates
+                        </div>
+                        <div class="feature-point">
+                            <strong>Speed Control:</strong> Configurable 0.1-5.0 movement speed
+                        </div>
+                        <div class="feature-point">
+                            <strong>Server Invisible:</strong> Scouting without detection
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CrystalPop -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>CrystalPop: Intelligent Crystal Combat</h3>
+                        <span class="feature-category">Ghost</span>
+                    </div>
+                    <p>Automatically destroys end crystals while protecting nearby loot with smart detection.</p>
+                    <div class="feature-details">
+                        <div class="feature-point">
+                            <strong>Ray-Cast Detection:</strong> Accurate crystal detection
+                        </div>
+                        <div class="feature-point">
+                            <strong>Loot Protection:</strong> Configurable radius for item safety
+                        </div>
+                        <div class="feature-point">
+                            <strong>Precious Items:</strong> Detects diamond, netherite, etc.
+                        </div>
+                        <div class="feature-point">
+                            <strong>Smart Targeting:</strong> Avoids crystals near important items
+                        </div>
+                    </div>
+                </div>
+
+                <!-- XRay -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>XRay: Ore Visualization</h3>
+                        <span class="feature-category">Render</span>
+                    </div>
+                    <p>Makes all blocks except ores and liquids invisible for easy resource location.</p>
+                    <div class="feature-details">
+                        <div class="feature-point">
+                            <strong>21 Visible Blocks:</strong> Coal, Iron, Gold, Diamond, Emerald, Ancient Debris, etc.
+                        </div>
+                        <div class="feature-point">
+                            <strong>Deepslate Support:</strong> All deepslate ore variants included
+                        </div>
+                        <div class="feature-point">
+                            <strong>Selective Rendering:</strong> WorldRendererMixin manipulation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUI Systems -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">GUI and HUD Systems</h2>
+                <div class="content-card">
+                    <p>
+                        LuminaClient features two complete GUI implementations and a flexible HUD system for
+                        maximum customization and user preference.
+                    </p>
+                </div>
+
+                <div class="gui-comparison">
+                    <div class="gui-card">
+                        <h3>New ClickGUI (Tab-Based)</h3>
+                        <ul class="feature-list">
+                            <li>Modern tab-based layout</li>
+                            <li>Draggable category panels</li>
+                            <li>Collapsible module lists</li>
+                            <li>Rounded UI with shadows</li>
+                            <li>Gradient backgrounds</li>
+                            <li>Smooth animations</li>
+                            <li>Category-specific icons</li>
+                            <li>Setting components (sliders, dropdowns, checkboxes)</li>
+                        </ul>
+                    </div>
+
+                    <div class="gui-card">
+                        <h3>Old ClickGUI (Frame-Based)</h3>
+                        <ul class="feature-list">
+                            <li>Traditional frame layout</li>
+                            <li>Multiple draggable frames</li>
+                            <li>One frame per category</li>
+                            <li>Legacy UI style</li>
+                            <li>Modular button system</li>
+                            <li>Backwards compatibility</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hud-features">
+                    <h3>HUD System Features</h3>
+                    <p>Press <kbd>H</kbd> to open HUD editor. Drag elements to reposition with real-time preview.</p>
+                    <div class="hud-modules">
+                        <span class="hud-badge">Arraylist (enabled modules)</span>
+                        <span class="hud-badge">TargetHUD (target info)</span>
+                        <span class="hud-badge">LuminaLogo</span>
+                        <span class="hud-badge">Coordinates</span>
+                        <span class="hud-badge">FPS counter</span>
+                        <span class="hud-badge">Potion effects</span>
+                        <span class="hud-badge">Armor status</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notable Implementations -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Notable Technical Implementations</h2>
+
+                <div class="impl-card">
+                    <h3>Rotation Calculation</h3>
+                    <p>
+                        Combat modules use advanced trigonometry for realistic player rotation. The system calculates
+                        yaw (horizontal) and pitch (vertical) angles using atan2 for quadrant-aware positioning.
+                    </p>
+                    <div class="code-block">
+                        <pre><code>// Calculate yaw (horizontal rotation)
+float yaw = (float)(Math.toDegrees(Math.atan2(deltaZ, deltaX)) - 90.0);
+
+// Calculate pitch (vertical rotation)
+float pitch = (float)(-Math.toDegrees(Math.atan(deltaY / distance)));</code></pre>
+                    </div>
+                </div>
+
+                <div class="impl-card">
+                    <h3>Animation System</h3>
+                    <p>
+                        Custom DecelerateAnimation class provides smooth UI transitions for module enable/disable,
+                        panel expansion, and visual effects. Animations use time-based interpolation for consistent
+                        frame-rate-independent motion.
+                    </p>
+                </div>
+
+                <div class="impl-card">
+                    <h3>Color Interpolation</h3>
+                    <p>
+                        The Arraylist module uses HSB color cycling with time-based gradients to create smooth rainbow
+                        effects. Colors interpolate between two hues with configurable speed and spread for each module.
+                    </p>
+                    <div class="code-block">
+                        <pre><code>// Time-based color cycling
+float hue = (System.currentTimeMillis() / colorSpeed) % 1.0f;
+float offset = index * colorSpread;
+Color rainbow = Color.getHSBColor((hue + offset) % 1.0f, 1.0f, 1.0f);</code></pre>
+                    </div>
+                </div>
+
+                <div class="impl-card">
+                    <h3>Fake Player Rendering</h3>
+                    <p>
+                        The Blink module renders a client-side fake player entity to show where the real player appears
+                        to others. The fake player copies skin, position, rotation, and inventory for realistic visualization.
+                    </p>
+                </div>
+
+                <div class="impl-card">
+                    <h3>Block Data Caching</h3>
+                    <p>
+                        Scaffold pre-calculates optimal block placement positions by checking all 6 faces for valid placement.
+                        This caching system reduces per-tick calculations and improves performance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuration -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Configuration & Persistence</h2>
+                <div class="content-card">
+                    <p>
+                        LuminaClient uses a JSON-based configuration system for persisting module states and settings.
+                        Configuration is loaded asynchronously on startup and saved automatically on changes.
+                    </p>
+                </div>
+
+                <div class="config-info">
+                    <div class="info-item">
+                        <strong>Location:</strong> <code>%appdata%\.minecraft\luminaConfig.json</code>
+                    </div>
+                    <div class="info-item">
+                        <strong>Format:</strong> JSON with module names as keys
+                    </div>
+                    <div class="info-item">
+                        <strong>Auto-Save:</strong> On module toggle, setting change, shutdown, or HUD reposition
+                    </div>
+                </div>
+
+                <h3>Setting Types</h3>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h4>BooleanSetting</h4>
+                        <p>Checkbox toggle for true/false options</p>
+                    </div>
+                    <div class="setting-card">
+                        <h4>NumberSetting</h4>
+                        <p>Slider with min/max clamping and configurable increment</p>
+                    </div>
+                    <div class="setting-card">
+                        <h4>ModeSetting</h4>
+                        <p>Dropdown menu with multiple string options</p>
+                    </div>
+                    <div class="setting-card">
+                        <h4>KeybindSetting</h4>
+                        <p>GLFW key code binding for module activation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Stats -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Code Organization</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">171</div>
+                        <div class="stat-label">Java Source Files</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15,000+</div>
+                        <div class="stat-label">Lines of Code</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">98</div>
+                        <div class="stat-label">Feature Modules</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">25</div>
+                        <div class="stat-label">Mixin Injections</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Event Types</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Setting Types</div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Architecture Highlights</h3>
+                    <ul class="highlight-list">
+                        <li>Clear separation of concerns with package-by-feature organization</li>
+                        <li>Abstract base classes for extensibility</li>
+                        <li>Consistent naming conventions throughout</li>
+                        <li>Well-defined interfaces and contracts</li>
+                        <li>Modular design enabling easy feature additions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="section section-conclusion">
+            <div class="section-container">
+                <h2 class="section-title">Conclusion</h2>
+                <div class="conclusion-content">
+                    <p class="conclusion-lead">
+                        LuminaClient represents a sophisticated approach to Minecraft client modification, combining
+                        technical excellence with feature richness and exceptional user experience.
+                    </p>
+
+                    <div class="conclusion-grid">
+                        <div class="conclusion-card">
+                            <h3>Technical Excellence</h3>
+                            <ul>
+                                <li>98 independent modules with clean abstractions</li>
+                                <li>Event-driven reactive programming model</li>
+                                <li>Non-invasive bytecode injection</li>
+                                <li>Thread-safe configuration management</li>
+                            </ul>
+                        </div>
+
+                        <div class="conclusion-card">
+                            <h3>Feature Richness</h3>
+                            <ul>
+                                <li>Combat automation and Crystal PvP mechanics</li>
+                                <li>Movement exploits and navigation aids</li>
+                                <li>Visual enhancements and custom HUD</li>
+                                <li>Advanced utility tools and debugging</li>
+                            </ul>
+                        </div>
+
+                        <div class="conclusion-card">
+                            <h3>User Experience</h3>
+                            <ul>
+                                <li>Dual GUI systems (modern and legacy)</li>
+                                <li>Drag-and-drop HUD customization</li>
+                                <li>Extensive per-module settings</li>
+                                <li>Smooth animations and visual feedback</li>
+                            </ul>
+                        </div>
+
+                        <div class="conclusion-card">
+                            <h3>Development Quality</h3>
+                            <ul>
+                                <li>Well-organized package structure</li>
+                                <li>Classic design patterns applied at scale</li>
+                                <li>Extensible architecture</li>
+                                <li>Open source with active development</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="educational-note">
+                        <h3>Educational Value</h3>
+                        <p>
+                            LuminaClient serves as an excellent case study for bytecode manipulation, event systems,
+                            GUI development, game modding, and applying software architecture patterns at scale.
+                        </p>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/LuminaDevelopment/LuminaClient" target="_blank" class="project-link">
+                            <span>View on GitHub</span>
+                            <span class="arrow">→</span>
+                        </a>
+                        <a href="https://discord.gg/K8g9hmza" target="_blank" class="project-link">
+                            <span>Join Discord</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+
+                    <div class="disclaimer">
+                        <p>
+                            <strong>Disclaimer:</strong> This project is created for educational purposes and demonstrates
+                            advanced Java programming, bytecode manipulation, and software architecture. Users should be
+                            aware of server rules and terms of service when using client modifications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>LuminaClient</h4>
+                <p>Alpha v1.0.0 • Minecraft 1.19.4</p>
+            </div>
+            <div class="footer-section">
+                <h4>Core Team</h4>
+                <p>Stormcph, Qweru, CorruptionHades, Cornbread2100</p>
+            </div>
+            <div class="footer-section">
+                <h4>License</h4>
+                <p>GPL-3.0 • Open Source</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Published November 11, 2025 • Technical Deep Dive</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
