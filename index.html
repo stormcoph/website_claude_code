@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StormCPH - Developer portfolio showcasing programming projects and tools">
+    <title>StormCPH | Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="gradient-overlay">
+        <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+            <div class="interactive"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="title">StormCPH</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Developer & Tool Creator</h2>
+                <p class="hero-description">Specializing in Python, Java and application development</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="https://github.com/stormcoph" target="_blank" class="btn btn-github">
+                        <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                        GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="content">
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-category="all">All</button>
+                    <button class="tab-btn" data-category="tool">Tools</button>
+                    <button class="tab-btn" data-category="game">Game Mods</button>
+                    <button class="tab-btn" data-category="web">Web</button>
+                </div>
+                
+                <div class="mod-grid">
+
+                    <div class="mod-card" data-category="tool">
+                        <div class="card-badge">Private</div>
+                        <h3 class="mod-title">Auto Note</h3>
+                        <p class="mod-description">Uses Gemini free api to generate notes for any text or document, and it's integrated with a gui in an obsidian plugin. (it's op for school)</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="ai-aimbot/index.html">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mod-card" data-category="tool">
+                        <h3 class="mod-title">PenguBot</h3>
+                        <p class="mod-description">A new and very much improved ai aimbot, reaching up to 180 fps object detection, and its open source! although you have to figure it out yourself</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="ai-aimbot/index.html">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/PenguBot" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mod-card" data-category="tool">
+                        <div class="card-badge">Private</div>
+                        <h3 class="mod-title">AI Aimbot</h3>
+                        <p class="mod-description">An complete Aimbot Using AI Object Detection for targets (players) on screen and uses an arduino to bypass all anticheat</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="ai-aimbot/index.html">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="game">
+                        <h3 class="mod-title">Lumina Client</h3>
+                        <p class="mod-description">Open-source Minecraft ghost client / hacked client designed to boost your gameplay experience.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-lumina" onclick="showProjectDetails('lumina')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/LuminaClient" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="game">
+                        <h3 class="mod-title">Illegal Skytils</h3>
+                        <p class="mod-description">Modified Skytils version that lets users see all Skytils visuals through walls, giving them an unfair advantage.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-skytils" onclick="showProjectDetails('skytils')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/Illegal-Skytils" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="game">
+                        <div class="card-badge">Private</div>
+                        <h3 class="mod-title">Lumina Paid</h3>
+                        <p class="mod-description">A much more refined version of the currently free and available version of Lumina, complete with a new GUI and many more modules.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-luminapaid" onclick="showProjectDetails('luminapaid')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="game">
+                        <div class="card-badge">Private</div>
+                        <h3 class="mod-title">Backrooms Hack</h3>
+                        <p class="mod-description">A Simple C# project that modifies memory addresses in the popular "Escape The Backrooms Game", to give unfair advantages.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-backrooms" onclick="showProjectDetails('backrooms')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="tool">
+                        <div class="card-badge">Private</div>
+                        <h3 class="mod-title">Emat Hacks</h3>
+                        <p class="mod-description">A hack for a local math program at my school to automatically solve math so I can get points on the leaderboard (I got banned lol).</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-emat" onclick="showProjectDetails('emat')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="game">
+                        <h3 class="mod-title">Murder Mystery Hack</h3>
+                        <p class="mod-description">A Mod made for the popular Murder Mystery gamemode on Hypixel to detect who the murder & detective is, complete with ESP and tracers.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-mm" onclick="showProjectDetails('mm')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/mmDetector" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="tool">
+                        <h3 class="mod-title">Copenheimer copy</h3>
+                        <p class="mod-description">My attempt at making a python version of the copenheimer bot (if you don't know what it is watch FitMC's video on it).</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-copenheimer" onclick="showProjectDetails('copenheimer')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/stormcph-copenheimer" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="tool">
+                        <h3 class="mod-title">Disable Enderchest</h3>
+                        <p class="mod-description">A serverside Mod that stops players from opening enderchests (made for an SMP so people could not simply store away the dragon egg).</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-enderchest" onclick="showProjectDetails('enderchest')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/Disable-Enderchest" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="tool">
+                        <h3 class="mod-title">Repo Scraper</h3>
+                        <p class="mod-description">Scrapes an entire Github Repository into a singular file which is great for training LLMs.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-reposcraper" onclick="showProjectDetails('reposcraper')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/RepoScraper" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="web">
+                        <h3 class="mod-title">Lumina Website</h3>
+                        <p class="mod-description">The Website for Lumina Client (it's ass lol).</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-luminawebsite" onclick="showProjectDetails('luminawebsite')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/LuminaWebsite" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mod-card" data-category="tool">
+                        <h3 class="mod-title">Discord Token Login</h3>
+                        <p class="mod-description">A pretty simple TamperMonkey plugin which creates a gui on the discord login page that allows you to paste your discord token.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-luminawebsite" onclick="showProjectDetails('luminawebsite')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/DiscordTokenLoginTamperMonkey" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mod-card" data-category="tool">
+                        <h3 class="mod-title">VPS proxy setup</h3>
+                        <p class="mod-description">A pretty simple vps setup to create private proxy for Hetzner.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-luminawebsite" onclick="showProjectDetails('luminawebsite')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/vps/tree/main" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mod-card" data-category="web">
+                        <h3 class="mod-title">Mindcraft Website</h3>
+                        <p class="mod-description">The currently unofficial website for the mindraft website</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-luminawebsite" onclick="showProjectDetails('luminawebsite')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://github.com/stormcoph/Mindcraft-Website" class="mod-button github-button">
+                                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mod-card" data-category="tool">
+                        <h3 class="mod-title">My Huggingface Models</h3>
+                        <p class="mod-description">Here I have published all the AI models I use with my AI aimbot. Some of them include valorant, arsenal, aimlabs and xdefiant models.</p>
+                        <div class="mod-actions">
+                            <a class="mod-button more-button" href="#project-huggingface" onclick="showProjectDetails('huggingface')">
+                                <span class="material-symbols-outlined">info</span>More
+                            </a>
+                            <a target="_blank" href="https://huggingface.co/stormcph" class="mod-button huggingface-button">
+                                <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Huggingface" class="huggingface-icon">
+                                Huggingface
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <span class="material-symbols-outlined about-icon">person</span>
+                        <h3 class="about-title">Who I Am</h3>
+                        <p class="about-description">I'm a developer mainly working in Python and Java. I've made quite a few projects, mostly cheats because I love making them, but also general tools and applications.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <span class="material-symbols-outlined about-icon">code</span>
+                        <h3 class="about-title">My Projects</h3>
+                        <p class="about-description">You may have seen that there are quite a few cheating projects. I don't make cheats to ruin the experience for others but rather because I think it is very fun to develop these types of applications.</p>
+                    </div>
+                    
+                    <div class="about-card" id="contact">
+                        <span class="material-symbols-outlined about-icon">mail</span>
+                        <h3 class="about-title">Contact Me</h3>
+                        <p class="about-description">You can contact me on Discord, my username is "stormcph". Please don't send a random friend request but rather a message request so I can see what you want.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>StormCPH</h3>
+                    <p>Developer & Tool Creator</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://github.com/stormcoph" target="_blank" class="social-icon">
+                            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub">
+                        </a>
+                        <a href="https://huggingface.co/stormcph" target="_blank" class="social-icon">
+                            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Huggingface">
+                        </a>
+                        <a href="https://discord.com/" target="_blank" class="social-icon">
+                            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StormCPH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
