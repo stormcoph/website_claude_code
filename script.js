@@ -345,4 +345,30 @@ document.addEventListener('DOMContentLoaded', function() {
             technologies: ['Not specified']
         };
     }
+
+    // Christmas Snow Animation
+    function createSnowflake() {
+        const snowContainer = document.getElementById('snow-container');
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '❄';
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.animationDuration = Math.random() * 3 + 7 + 's';
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+        snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+
+        snowContainer.appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 10000);
+    }
+
+    // Create snowflakes periodically
+    setInterval(createSnowflake, 200);
+
+    // Create initial snowflakes
+    for (let i = 0; i < 30; i++) {
+        setTimeout(createSnowflake, i * 100);
+    }
 });

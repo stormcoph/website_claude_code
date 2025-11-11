@@ -4,13 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="StormCPH - Developer portfolio showcasing programming projects and tools">
-    <title>StormCPH | Portfolio</title>
+    <title>StormCPH | Portfolio - Happy Holidays!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <style>
+        /* Christmas Snow Animation */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation-name: snowfall;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            color: white;
+            font-size: 1em;
+            opacity: 0.8;
+        }
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        /* Santa Hat on Title */
+        .santa-hat {
+            display: inline-block;
+            font-size: 1.2em;
+            margin-left: 10px;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+        /* Christmas Lights */
+        .christmas-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            z-index: 9998;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            pointer-events: none;
+        }
+        .light {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+        .light:nth-child(odd) {
+            animation-delay: 0s;
+        }
+        .light:nth-child(even) {
+            animation-delay: 0.75s;
+        }
+        .light:nth-child(4n+1) { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        .light:nth-child(4n+2) { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
+        .light:nth-child(4n+3) { background: #0000ff; box-shadow: 0 0 10px #0000ff; }
+        .light:nth-child(4n+4) { background: #ffff00; box-shadow: 0 0 10px #ffff00; }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        /* Festive Badge */
+        .festive-banner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #c41e3a 0%, #0c8640 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            z-index: 9997;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Christmas Lights -->
+    <div class="christmas-lights">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+
+    <!-- Snow Container -->
+    <div id="snow-container"></div>
+
+    <!-- Festive Banner -->
+    <div class="festive-banner">🎄 Happy Holidays! 🎅</div>
+
     <div class="background"></div>
     <div class="gradient-overlay">
         <div class="gradients-container">
@@ -25,12 +143,12 @@
 
     <header class="header">
         <div class="container">
-            <h1 class="title">StormCPH</h1>
+            <h1 class="title">StormCPH<span class="santa-hat">🎅</span></h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#projects" class="nav-link">🎁 Projects</a></li>
+                    <li><a href="#about" class="nav-link">⛄ About</a></li>
+                    <li><a href="#contact" class="nav-link">🎄 Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,13 +157,13 @@
     <div class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-title">Developer & Tool Creator</h2>
-                <p class="hero-description">Specializing in Python, Java and application development</p>
+                <h2 class="hero-title">🎄 Developer & Tool Creator 🎄</h2>
+                <p class="hero-description">Spreading holiday cheer through Python, Java and application development! ❄️</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#projects" class="btn btn-primary">🎁 View Projects</a>
                     <a href="https://github.com/stormcoph" target="_blank" class="btn btn-github">
                         <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="github-icon">
-                        GitHub Profile
+                        ⭐ GitHub Profile
                     </a>
                 </div>
             </div>
@@ -55,7 +173,7 @@
     <main class="content">
         <section id="projects" class="projects-section">
             <div class="container">
-                <h2 class="section-title">My Projects</h2>
+                <h2 class="section-title">🎁 My Projects 🎁</h2>
                 
                 <div class="tabs">
                     <button class="tab-btn active" data-category="all">All</button>
@@ -314,7 +432,7 @@
         
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title">⛄ About Me ⛄</h2>
                 <div class="about-grid">
                     <div class="about-card">
                         <span class="material-symbols-outlined about-icon">person</span>
@@ -369,7 +487,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 StormCPH. All rights reserved.</p>
+                <p>&copy; 2025 StormCPH. All rights reserved. 🎄 Happy Holidays! ❄️</p>
             </div>
         </div>
     </footer>
