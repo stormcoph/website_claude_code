@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PenguBot - AI-Powered Precision Targeting | Deep dive into neural networks, object detection, and real-time inference">
+    <title>PenguBot | AI-Powered Precision Targeting</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-back">← Back to Portfolio</a>
+            <div class="nav-logo">
+                <span>PenguBot</span>
+            </div>
+            <a href="https://github.com/stormcoph/PenguBot" target="_blank" class="nav-github">GitHub →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <canvas class="neural-network" id="neuralCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">AI-Powered • TensorRT Optimized • 220 FPS</div>
+            <h1 class="hero-title">PenguBot</h1>
+            <p class="hero-subtitle">AI-Powered Precision Targeting</p>
+            <p class="hero-description">
+                A sophisticated Python-based system that combines YOLOv8 object detection,
+                NVIDIA TensorRT optimization, and hardware-accelerated mouse control to achieve
+                real-time precision targeting at 220 FPS.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">220</div>
+                    <div class="stat-label">FPS Target</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">~4-5ms</div>
+                    <div class="stat-label">Inference Time</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">7K+</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">22</div>
+                    <div class="stat-label">Python Files</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <!-- Introduction -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Introduction</h2>
+                <div class="content-card">
+                    <p>
+                        In the ever-evolving landscape of competitive gaming and machine learning applications, PenguBot emerges as
+                        a fascinating intersection of cutting-edge AI technology and real-time system programming. This sophisticated
+                        Python-based project demonstrates how modern deep learning frameworks, GPU acceleration, and clever software
+                        architecture can combine to create a high-performance object detection and targeting system.
+                    </p>
+                    <p>
+                        Created by Stormcoph and released under the MIT License, PenguBot represents more than just another automation
+                        tool—it's a masterclass in optimizing ML inference pipelines, managing real-time visual overlays, and building
+                        responsive configuration systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is PenguBot -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">What is PenguBot?</h2>
+                <div class="content-card">
+                    <p>
+                        At its core, PenguBot is an AI-powered aimbot designed for precision targeting through advanced object detection.
+                        The system combines <strong>YOLOv8-based machine learning models</strong> with <strong>NVIDIA's TensorRT inference optimization</strong>
+                        to achieve real-time performance, processing frames at an impressive <strong>220 FPS target rate</strong> while
+                        maintaining smooth, customizable aiming behavior.
+                    </p>
+                    <p>
+                        The project features a full <strong>PyQt5-based GUI</strong> with animated overlays, a sophisticated configuration
+                        management system, and <strong>hardware-accelerated mouse control</strong> through Arduino serial communication.
+                        It's currently optimized for Windows environments, with a particular focus on competitive FPS games like CS:GO.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">The Technology Stack</h2>
+
+                <h3 style="color: var(--neural-green); font-size: 1.8rem; margin: var(--spacing-lg) 0 var(--spacing-md);">
+                    AI & Machine Learning Layer
+                </h3>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🧠</div>
+                        <h3>PyTorch 2.5.0</h3>
+                        <p>Core ML framework with CUDA 11.8 acceleration</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">⚡</div>
+                        <h3>TensorRT 10.3.0</h3>
+                        <p>NVIDIA's inference optimizer - up to 40x faster than CPU</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🎯</div>
+                        <h3>YOLOv8</h3>
+                        <p>Real-time object detection with single-pass processing</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">💾</div>
+                        <h3>pyCUDA 2024.1.2</h3>
+                        <p>Direct GPU memory management and async operations</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--neural-green); font-size: 1.8rem; margin: var(--spacing-lg) 0 var(--spacing-md);">
+                    Computer Vision & Screen Capture
+                </h3>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">📷</div>
+                        <h3>bettercam 1.0.0</h3>
+                        <p>Primary screen capture optimized for 220 FPS</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🖥️</div>
+                        <h3>dxcam 0.0.5</h3>
+                        <p>DirectX-based alternative capture method</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">👁️</div>
+                        <h3>OpenCV 4.10.0.84</h3>
+                        <p>Image processing and Non-Maximum Suppression</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📸</div>
+                        <h3>mss 10.0.0</h3>
+                        <p>Fallback screen capture library</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--neural-green); font-size: 1.8rem; margin: var(--spacing-lg) 0 var(--spacing-md);">
+                    GUI & Hardware Control
+                </h3>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🎨</div>
+                        <h3>PyQt5 5.15.11</h3>
+                        <p>Modern UI with animated overlays and particle effects</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🖱️</div>
+                        <h3>pyserial 3.5</h3>
+                        <p>Arduino communication for hardware mouse control</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🪟</div>
+                        <h3>pywin32 308</h3>
+                        <p>Windows API integration for system-level control</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">✍️</div>
+                        <h3>Roboto Font</h3>
+                        <p>Professional typography across all UI elements</p>
+                    </div>
+                </div>
+
+                <div class="content-card" style="margin-top: var(--spacing-lg);">
+                    <h3 style="color: var(--ai-cyan); margin-bottom: var(--spacing-sm);">Model Conversion Pipeline</h3>
+                    <div class="code-block">
+                        <div class="code-header">Optimization Path</div>
+                        <pre><code>PyTorch (.pt) → ONNX (.onnx) → TensorRT (.engine)
+
+• PyTorch: Training and initial inference
+• ONNX: Open Neural Network Exchange format
+• TensorRT: Optimized for deployment (FP16 precision, 2x memory efficient)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Architecture: Performance Through Design</h2>
+
+                <div class="content-card">
+                    <h3 style="color: var(--ai-cyan); margin-bottom: var(--spacing-sm);">The Core Processing Pipeline</h3>
+                    <p>PenguBot's architecture is built around performance and responsiveness. Here's how the system processes frames:</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">Main.py Orchestration</div>
+                    <pre><code>1. Initialize QApplication and create three overlay windows:
+   • FOVOverlay: Shows the 500x500px detection region
+   • FPSOverlay: Displays animated FPS counter
+   • DetectionOverlay: Marks detected targets with red circles
+
+2. Load TensorRT engine and configuration from settings.json
+
+3. Start bettercam screen capture targeting 220 FPS
+
+4. Initialize ring buffer with 3 frames for efficient management
+
+5. Launch producer thread that continuously captures frames
+
+6. Main loop:
+   • Process frames through FastObjectDetector
+   • Calculate closest detection to screen center
+   • Queue mouse movement commands (non-blocking)
+   • Update GUI overlays every 2 frames for performance</code></pre>
+                </div>
+
+                <div class="feature-card" style="margin-top: var(--spacing-lg);">
+                    <div class="feature-header">
+                        <h3>FastObjectDetector: The AI Heart</h3>
+                        <span class="feature-category">Core Component</span>
+                    </div>
+                    <p>The <code>ObjectDetector.py</code> module contains the <code>FastObjectDetector</code> class, which encapsulates all TensorRT inference logic:</p>
+                    <div class="feature-point">
+                        <strong>TensorRT CUDA execution context</strong><br>
+                        Pre-allocated input buffers (1, 3, 640, 640) for zero-copy efficiency
+                    </div>
+                    <div class="feature-point">
+                        <strong>Async GPU transfers</strong><br>
+                        htod (host-to-device) and dtoh (device-to-host) with minimal latency
+                    </div>
+                    <div class="feature-point">
+                        <strong>Configurable confidence threshold</strong><br>
+                        Filter detections based on certainty level
+                    </div>
+                    <div class="feature-point">
+                        <strong>NMS-based duplicate removal</strong><br>
+                        Non-Maximum Suppression eliminates overlapping detections
+                    </div>
+                    <div class="feature-point">
+                        <strong>Normalized bounding box output</strong><br>
+                        0.0-1.0 range for screen-independent coordinates
+                    </div>
+                    <div class="feature-point">
+                        <strong>Engine warmup</strong><br>
+                        10 dummy inferences ensure CUDA contexts are fully initialized
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Ring Buffer: Handling High Frame Rates</h3>
+                        <span class="feature-category">Performance</span>
+                    </div>
+                    <p>
+                        One of PenguBot's most elegant solutions is its ring buffer for frame management. When capturing at 220 FPS,
+                        the system can produce frames faster than they can be processed. A naive implementation would either drop
+                        frames randomly or build up a massive backlog.
+                    </p>
+                    <div class="feature-point">
+                        <strong>Fixed-size buffer</strong> - Maintains only 3 frames in memory
+                    </div>
+                    <div class="feature-point">
+                        <strong>Metrics tracking</strong> - Monitors frames_dropped and frames_processed
+                    </div>
+                    <div class="feature-point">
+                        <strong>Memory protection</strong> - Prevents bloat from fast capture rates
+                    </div>
+                    <div class="feature-point">
+                        <strong>Consistent latency</strong> - Ensures most recent frames are always processed
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>MouseMover: Hardware-Accelerated Control</h3>
+                        <span class="feature-category">Hardware</span>
+                    </div>
+                    <p>The <code>mouse_mover.py</code> module manages serial communication with Arduino-based mouse controllers:</p>
+                    <div class="code-block">
+                        <div class="code-header">Serial Command Format</div>
+                        <pre><code>MOVE dx,dy,0
+
+• Thread-safe serial port handling
+• Relative movement with configurable speed multiplier
+• Screen boundary constraint checking
+• Easing strength and control strength parameters
+• Optional movement smoothing
+• Maximum step size: 127 pixels per command</code></pre>
+                    </div>
+                    <p style="margin-top: var(--spacing-md);">
+                        <strong>Advantages of hardware approach:</strong> No software-detectable mouse hooks, sub-millisecond response times,
+                        consistent movement curves, and independence from Windows cursor acceleration.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuration Management -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Configuration Management</h2>
+
+                <div class="content-card">
+                    <p>
+                        The <code>ConfigManager.py</code> class implements a sophisticated configuration system with reactive updates
+                        and persistent storage.
+                    </p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">📄</div>
+                        <h3>JSON Persistence</h3>
+                        <p>Settings stored in assets/config/settings.json</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">👁️</div>
+                        <h3>File Monitoring</h3>
+                        <p>500ms polling interval for external changes</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🔔</div>
+                        <h3>Observer Pattern</h3>
+                        <p>Reactive updates across the UI</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🔗</div>
+                        <h3>Dot Notation</h3>
+                        <p>Access nested values: "Aimbot.speed"</p>
+                    </div>
+                </div>
+
+                <div class="code-block" style="margin-top: var(--spacing-lg);">
+                    <div class="code-header">settings.json Structure</div>
+                    <pre><code>{
+    "Aimbot": {
+        "enabled": true,
+        "fov": 507.0,
+        "target_height_1": 0.171,  // Headshot mode
+        "target_height_2": 0.1,    // Body targeting
+        "speed": 0.08
+    },
+    "AI": {
+        "confidence": 0.749,
+        "nms_iou_threshold": 0.882,
+        "model": "csgo2_best.engine"
+    },
+    "Visual": {
+        "fps": true,
+        "fov": false,
+        "target": false,
+        "fps_x": 2029.0,
+        "fps_y": 41.0
+    }
+}</code></pre>
+                </div>
+
+                <div class="content-card" style="margin-top: var(--spacing-lg);">
+                    <h3 style="color: var(--ai-cyan); margin-bottom: var(--spacing-sm);">Benefits</h3>
+                    <ul>
+                        <li><strong>Easy preset creation:</strong> Copy and modify JSON for different scenarios</li>
+                        <li><strong>External configuration:</strong> Other tools can modify settings programmatically</li>
+                        <li><strong>Version control:</strong> Track configuration changes in git</li>
+                        <li><strong>Backup and restore:</strong> Simple file copy operations</li>
+                        <li><strong>Auto-reload:</strong> GUI and main loop stay synchronized automatically</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Overlay System -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Visual Overlay System</h2>
+
+                <div class="content-card">
+                    <p>
+                        PenguBot features three distinct overlay windows that provide real-time feedback without interfering
+                        with gameplay.
+                    </p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🎯</div>
+                        <h3>FOVOverlay</h3>
+                        <p>Semi-transparent border marking the 500x500px detection region centered on screen</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📊</div>
+                        <h3>FPSOverlay</h3>
+                        <p>Animated gradient counter with pulsing opacity, draggable positioning, and real-time stats</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">⭕</div>
+                        <h3>DetectionOverlay</h3>
+                        <p>Red circles on detected targets that scale with bounding box size, updated every frame</p>
+                    </div>
+                </div>
+
+                <div class="content-card" style="margin-top: var(--spacing-lg);">
+                    <h3 style="color: var(--ai-cyan); margin-bottom: var(--spacing-sm);">Common Overlay Features</h3>
+                    <ul>
+                        <li><strong>Frameless, borderless windows</strong> - No visual distraction</li>
+                        <li><strong>Always-on-top Z-order</strong> - Never hidden behind game windows</li>
+                        <li><strong>Transparent backgrounds</strong> - Blend seamlessly with game</li>
+                        <li><strong>Click-through enabled</strong> - Except FPS overlay when dragging</li>
+                        <li><strong>Smart update throttling</strong> - GUI updates every 2 frames for 50% performance boost</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Features -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Unique Features & Innovations</h2>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>1. Dual-Mode Targeting</h3>
+                        <span class="feature-category">Innovation</span>
+                    </div>
+                    <p>
+                        PenguBot implements an innovative dual-targeting system. Pressing keys <kbd>1</kbd> or <kbd>2</kbd>
+                        switches between two different target height ratios:
+                    </p>
+                    <div class="feature-point">
+                        <strong>Key 1:</strong> Height ratio 0.171 (headshot mode)
+                    </div>
+                    <div class="feature-point">
+                        <strong>Key 2:</strong> Height ratio 0.1 (body targeting)
+                    </div>
+                    <p style="margin-top: var(--spacing-md);">
+                        This allows dynamic adjustment based on game situation, weapon choice, or personal preference—all
+                        without opening the configuration GUI.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>2. TensorRT Model Hot-Swapping</h3>
+                        <span class="feature-category">ML</span>
+                    </div>
+                    <p>
+                        The system supports multiple compiled models in the <code>assets/models/</code> directory.
+                        Users can switch between models through the GUI without restarting the application.
+                    </p>
+                    <div class="feature-point">
+                        <strong>High accuracy models</strong> for competitive play
+                    </div>
+                    <div class="feature-point">
+                        <strong>Fast inference models</strong> for maximum FPS
+                    </div>
+                    <div class="feature-point">
+                        <strong>Specialized models</strong> for specific games (e.g., csgo2_best.engine)
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>3. Non-Blocking Mouse Commands</h3>
+                        <span class="feature-category">Performance</span>
+                    </div>
+                    <p>
+                        Mouse movement commands are queued to a worker thread, ensuring the main detection loop never blocks
+                        waiting for serial communication. This architecture maintains consistent frame processing rates even if
+                        the Arduino temporarily lags.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>4. Confidence and NMS Thresholding</h3>
+                        <span class="feature-category">AI Tuning</span>
+                    </div>
+                    <p>Users can fine-tune two critical AI parameters:</p>
+                    <div class="feature-point">
+                        <strong>Confidence threshold (default: 0.749):</strong> Minimum certainty required for a detection to be considered valid
+                    </div>
+                    <div class="feature-point">
+                        <strong>NMS IOU threshold (default: 0.882):</strong> Overlap threshold for removing duplicate detections
+                    </div>
+                    <p style="margin-top: var(--spacing-md);">
+                        These controls allow users to balance between detection sensitivity and false positive rates based on
+                        their specific game and visual conditions.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>5. GUI with Animated Particle System</h3>
+                        <span class="feature-category">UI/UX</span>
+                    </div>
+                    <p>The PyQt5 GUI demonstrates excellent modern UI/UX practices:</p>
+                    <ul>
+                        <li><strong>Icon-based navigation</strong> - Access to Aimbot, AI, Visual, and Config settings</li>
+                        <li><strong>Custom widgets</strong> - Standardized sliders, toggles, and list components</li>
+                        <li><strong>Snowflake particle system</strong> - Animated effects that respond to mouse movement</li>
+                        <li><strong>Gradient backgrounds</strong> - Modern visual design with smooth animations</li>
+                        <li><strong>Real-time preview</strong> - See changes immediately without restarting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Characteristics -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Performance Characteristics</h2>
+
+                <div class="content-card">
+                    <p>PenguBot achieves impressive performance through careful optimization:</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">220</div>
+                        <div class="stat-label">FPS Target Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">500x500</div>
+                        <div class="stat-label">Capture Region (px)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">640x640</div>
+                        <div class="stat-label">Model Input Size (px)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">~4-5ms</div>
+                        <div class="stat-label">Detection Latency</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Ring Buffer Frames</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">50%</div>
+                        <div class="stat-label">VRAM Reduction (FP16)</div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--neural-green); font-size: 1.8rem; margin: var(--spacing-lg) 0 var(--spacing-md); text-align: center;">
+                    Optimization Techniques
+                </h3>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">⚡</div>
+                        <h3>Pre-allocated Buffers</h3>
+                        <p>GPU buffers allocated once during initialization, preventing allocation overhead</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🔄</div>
+                        <h3>Ring Buffer</h3>
+                        <p>Limits frame storage to 3 frames, prevents memory bloat</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">💾</div>
+                        <h3>FP16 Precision</h3>
+                        <p>Half-precision floats reduce VRAM by 50% without significant accuracy loss</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🧵</div>
+                        <h3>Multi-threading</h3>
+                        <p>Work distributed across cores for capture, processing, and control</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🚫</div>
+                        <h3>Non-blocking I/O</h3>
+                        <p>Serial communication never stalls the main processing pipeline</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🎨</div>
+                        <h3>GUI Throttling</h3>
+                        <p>Overlays update every 2 frames, cutting overhead by 50%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Conversion Pipeline -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Model Conversion Pipeline</h2>
+
+                <div class="content-card">
+                    <p>PenguBot includes complete tooling for converting custom-trained models:</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Step 1: Train Your Model</h3>
+                        <span class="feature-category">PyTorch</span>
+                    </div>
+                    <p>Use YOLOv8 to train on your custom dataset, producing a <code>.pt</code> (PyTorch) file.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Step 2: Convert to ONNX</h3>
+                        <span class="feature-category">Interoperability</span>
+                    </div>
+                    <p>Run <code>pt-to-onnx.py</code> to convert the PyTorch model to ONNX format:</p>
+                    <div class="code-block">
+                        <div class="code-header">Command</div>
+                        <pre><code>python pt-to-onnx.py</code></pre>
+                    </div>
+                    <p style="margin-top: var(--spacing-md);">
+                        ONNX (Open Neural Network Exchange) is an open format that allows interoperability between frameworks.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Step 3: Compile to TensorRT</h3>
+                        <span class="feature-category">Optimization</span>
+                    </div>
+                    <p>Execute <code>model_converter.py</code> to compile the ONNX model into a TensorRT engine:</p>
+                    <div class="code-block">
+                        <div class="code-header">Command</div>
+                        <pre><code>python model_converter.py</code></pre>
+                    </div>
+                    <p style="margin-top: var(--spacing-md);">This step performs:</p>
+                    <ul>
+                        <li>Layer fusion optimization</li>
+                        <li>Precision calibration (FP16)</li>
+                        <li>Memory allocation planning</li>
+                        <li>Kernel auto-tuning for your specific GPU</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Step 4: Deploy</h3>
+                        <span class="feature-category">Integration</span>
+                    </div>
+                    <p>
+                        Place the resulting <code>.engine</code> file in <code>assets/models/</code> and select it through
+                        the GUI or by updating <code>settings.json</code>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">System Requirements & Setup</h2>
+
+                <h3 style="color: var(--neural-green); font-size: 1.8rem; margin: var(--spacing-lg) 0 var(--spacing-md);">
+                    Hardware Requirements
+                </h3>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🎮</div>
+                        <h3>NVIDIA GPU</h3>
+                        <p>CUDA-capable (GTX 1000 series or newer recommended)</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🔌</div>
+                        <h3>Arduino (Optional)</h3>
+                        <p>For hardware-based mouse control</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🖥️</div>
+                        <h3>Multi-core CPU</h3>
+                        <p>For handling capture and inference threads</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">💾</div>
+                        <h3>16GB RAM</h3>
+                        <p>8GB minimum, 16GB recommended</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--neural-green); font-size: 1.8rem; margin: var(--spacing-lg) 0 var(--spacing-md);">
+                    Software Dependencies
+                </h3>
+
+                <div class="content-card">
+                    <ul>
+                        <li><strong>Python 3.8+</strong></li>
+                        <li><strong>NVIDIA CUDA Toolkit 11.8</strong> (manual installation required)</li>
+                        <li><strong>NVIDIA TensorRT 10.3.0</strong> (manual installation required)</li>
+                        <li><strong>NVIDIA Driver 566.36+</strong></li>
+                        <li><strong>Visual C++ Build Tools</strong> (for compiling native Python packages)</li>
+                    </ul>
+                </div>
+
+                <div class="code-block" style="margin-top: var(--spacing-lg);">
+                    <div class="code-header">Installation Steps</div>
+                    <pre><code>1. Install CUDA 11.8 from NVIDIA's website
+2. Install TensorRT 10.3.0 and add to PATH
+3. Clone the repository: git clone https://github.com/stormcoph/PenguBot
+4. Install dependencies: pip install -r requirements.txt
+5. Place model .engine files in assets/models/
+6. Configure serial port if using Arduino mouse control
+
+# Running the Application
+python Main.py                    # Main detection loop
+python -m gui.GUI                 # Configuration GUI
+start.bat                         # Both (Windows)</code></pre>
+                </div>
+
+                <div class="content-card" style="margin-top: var(--spacing-lg); background: rgba(255, 107, 53, 0.1); border-color: var(--target-orange);">
+                    <p style="color: rgba(224, 230, 237, 0.9);">
+                        <strong style="color: var(--target-orange);">Note:</strong> Currently, PenguBot requires manual setup of CUDA and TensorRT.
+                        The project maintainer is actively seeking community contributions for automated setup scripts.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Quality -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Code Quality & Architecture Patterns</h2>
+
+                <div class="content-card">
+                    <p>PenguBot demonstrates several software engineering best practices:</p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🔧</div>
+                        <h3>Separation of Concerns</h3>
+                        <p>Detection, GUI, config, and mouse control completely isolated</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">👀</div>
+                        <h3>Observer Pattern</h3>
+                        <p>ConfigManager implements observers for reactive UI updates</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🔒</div>
+                        <h3>Thread Safety</h3>
+                        <p>All shared resources use appropriate synchronization</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">⚡</div>
+                        <h3>Performance-Conscious</h3>
+                        <p>Zero-copy operations, pre-allocated buffers, async GPU ops</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid" style="margin-top: var(--spacing-xl);">
+                    <div class="stat-card">
+                        <div class="stat-value">~7,000+</div>
+                        <div class="stat-label">Lines of Code</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">22</div>
+                        <div class="stat-label">Python Files</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">13</div>
+                        <div class="stat-label">Core Dependencies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Main GUI Windows</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Use Cases & Applications</h2>
+
+                <div class="content-card">
+                    <p>
+                        While PenguBot was designed with competitive gaming in mind (particularly CS:GO), the architecture
+                        has broader applications:
+                    </p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🎮</div>
+                        <h3>Competitive Gaming</h3>
+                        <p>FPS games requiring precise aiming and target tracking in fast-paced scenarios</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🧪</div>
+                        <h3>ML Research</h3>
+                        <p>Real-time inference optimization and TensorRT deployment studies</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">👁️</div>
+                        <h3>Computer Vision</h3>
+                        <p>Object tracking in video streams and real-time detection prototyping</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📚</div>
+                        <h3>Education</h3>
+                        <p>Learning GPU programming, ML optimization, and real-time systems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ethical Considerations -->
+        <section class="section">
+            <div class="section-container">
+                <h2 class="section-title">Ethical Considerations</h2>
+
+                <div class="content-card" style="background: rgba(255, 51, 102, 0.1); border-color: var(--target-red);">
+                    <h3 style="color: var(--target-red); margin-bottom: var(--spacing-sm);">Important Notice</h3>
+                    <p>
+                        It's important to address the ethical dimensions of aimbot technology. While PenguBot demonstrates
+                        impressive technical achievements, its use in competitive online gaming raises serious concerns:
+                    </p>
+                </div>
+
+                <div class="tech-grid" style="margin-top: var(--spacing-lg);">
+                    <div class="tech-card">
+                        <div class="tech-icon">⚖️</div>
+                        <h3>Fairness in Competition</h3>
+                        <p>Automated aiming tools provide unfair advantages, undermining competitive integrity</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📜</div>
+                        <h3>Terms of Service</h3>
+                        <p>Most online games prohibit aimbots. Using them can result in permanent bans</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">👥</div>
+                        <h3>Community Impact</h3>
+                        <p>Widespread use degrades the experience for legitimate players</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">✅</div>
+                        <h3>Legitimate Use Cases</h3>
+                        <p>Single-player games, research, education, accessibility tools, and automated testing</p>
+                    </div>
+                </div>
+
+                <div class="content-card" style="margin-top: var(--spacing-lg); background: rgba(0, 255, 136, 0.1); border-color: var(--neural-green);">
+                    <p style="color: rgba(224, 230, 237, 0.9);">
+                        <strong style="color: var(--neural-green);">Responsible Use:</strong> Users should carefully consider the
+                        ethical implications and ensure they're using the technology responsibly and legally.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="section section-alt">
+            <div class="section-container">
+                <h2 class="section-title">Conclusion</h2>
+
+                <div class="content-card">
+                    <p style="font-size: 1.2rem; color: rgba(224, 230, 237, 0.95); text-align: center; line-height: 1.8;">
+                        PenguBot represents a fascinating case study in high-performance AI application development.
+                        By combining YOLOv8 object detection, TensorRT optimization, sophisticated GUI design, and clever
+                        architectural patterns, the project achieves impressive real-time performance on consumer hardware.
+                    </p>
+                </div>
+
+                <div class="tech-grid" style="margin-top: var(--spacing-lg);">
+                    <div class="tech-card">
+                        <div class="tech-icon">🤖</div>
+                        <h3>ML Deployment</h3>
+                        <p>Effective use of model optimization and GPU acceleration</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">⚡</div>
+                        <h3>Real-Time Systems</h3>
+                        <p>Ring buffers, thread management, and latency minimization</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🎨</div>
+                        <h3>GUI Development</h3>
+                        <p>Modern PyQt5 practices with reactive configuration</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🏗️</div>
+                        <h3>Software Architecture</h3>
+                        <p>Clean separation of concerns and maintainable structure</p>
+                    </div>
+                </div>
+
+                <div class="content-card" style="margin-top: var(--spacing-xl); text-align: center;">
+                    <h3 style="color: var(--ai-cyan); margin-bottom: var(--spacing-md); font-size: 1.8rem;">
+                        Educational Value
+                    </h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Whether you're interested in machine learning inference optimization, real-time computer vision,
+                        game automation, or Python GUI development, PenguBot offers valuable insights and techniques.
+                        The project remains under active development, with opportunities for community contribution.
+                    </p>
+                    <div style="margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                        <a href="https://github.com/stormcoph/PenguBot" target="_blank"
+                           style="background: var(--gradient-ai); color: #ffffff; padding: 1rem 2rem; border-radius: var(--radius-md); text-decoration: none; font-weight: 700; box-shadow: var(--shadow-glow); transition: var(--transition);"
+                           onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 0 40px var(--ai-cyan-glow)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-glow)'">
+                            View on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>PenguBot</h4>
+                <p>AI-Powered Precision Targeting System</p>
+            </div>
+            <div class="footer-section">
+                <h4>Technology</h4>
+                <p>PyTorch • TensorRT • YOLOv8 • PyQt5</p>
+            </div>
+            <div class="footer-section">
+                <h4>License</h4>
+                <p>MIT License • Open Source</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Created by Stormcoph • Published November 11, 2025</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Neural Network Canvas Animation
+        const canvas = document.getElementById('neuralCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = 800;
+
+        const nodes = [];
+        const nodeCount = 50;
+        const connectionDistance = 150;
+
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 217, 255, 0.8)';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(0, 217, 255, 0.5)';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push(new Node());
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        const opacity = (1 - distance / connectionDistance) * 0.3;
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = `rgba(0, 217, 255, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawConnections();
+
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
